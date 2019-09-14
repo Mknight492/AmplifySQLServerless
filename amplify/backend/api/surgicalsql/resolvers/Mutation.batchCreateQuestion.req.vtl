@@ -1,12 +1,23 @@
 #set( $cols = [] )
 #set( $vals = [] )
-#foreach( $entry in $ctx.args.createQuestionInput.keySet() )
-  #set( $discard = $cols.add($entry) )
-  #set( $discard = $vals.add("'$ctx.args.createQuestionInput[$entry]'") )
+#set ($firstLoop = true)
+#foreach( $QuestionObj in $ctx.args.input )
+	#set ($nested = [] )
+    #foreach( $entry in $QuestionObj.keySet() )
+    	#if($firstLoop)
+        	#set( $discard = $cols.add($entry) )
+        #end
+    #set( $discard = $nested.add("'$QuestionObj[$entry]'") )
+    #end
+    #set($firstLoop = false)
+  #set( $nestedStr = $nested.toString().replace("[","(").replace("]",")") )
+  #set( $discard = $vals.add($nestedStr) )
 #end
-#set( $valStr = $vals.toString().replace("[","(").replace("]",")") )
+#set( $valStr = $vals.toString().replace("[","").replace("]","") )
 #set( $colStr = $cols.toString().replace("[","(").replace("]",")") )
+
+
 {
   "version": "2018-05-29",
-  "statements":   ["INSERT INTO Surgical.Question $colStr VALUES $valStr" , "SELECT * FROM Surgical.Question where id = (SELECT MAX(id) from Surgical.Question)"]
+  "statements":   ["INSERT INTO Surgical.Question $colStr VALUES $valStr " , "SELECT * FROM Surgical.Question where id = (SELECT MAX(id) from Surgical.Question)"]
 }

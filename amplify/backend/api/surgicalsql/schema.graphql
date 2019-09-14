@@ -1,15 +1,69 @@
 input CreateQuestionInput {
   id: Int
   stem: String
-  topic: String
-  subTopic: String
-  questionType: String
+  topic: Topic
+  subTopic: SubTopic
+  questionType: QuestionType
   questionOptions: String
   questionAnswers: String
   points: Int
   explaination: String
   explainationUrl: String
   imageUrl: String
+}
+enum QuestionType {
+  MCQ
+  TF
+  SR
+}
+
+enum Topic {
+  Anatomy
+  Physiology
+  Pathology
+}
+
+enum SubTopic {
+  Head
+  Neck
+  Thorax
+  Abdomen
+  Pelvis
+  UpperLimb
+  LowerLimb
+  Back
+  EmbryologyAndHistopathology
+  CellularPhysiology
+  NeuromuscularCNS
+  GastrointestinalPhysiology
+  HaematologyPhysiology
+  FluidAndElectrolytes
+  CardiovascularPhysiology
+  RespiratoryPhysiology
+  Renal
+  Metabolism
+  EndocrinePhysiology
+  ThyroidPhysiology
+  TraumaAndClinical
+  CellularPathology
+  Inflammation
+  Infection
+  AntibioticsAndPharmacology
+  Immunology
+  Genetics
+  Neoplasia
+  SkinAndBone
+  HaematologyPathology
+  CNS
+  Breast
+  CardiovascularPathology
+  RespiratoryPathology
+  GastrointestinalPathology
+  ThyroidPathology
+  EndocrinePathology
+  RenalUrologyGynaecology
+  Clinical
+  Statistics
 }
 
 type Question {

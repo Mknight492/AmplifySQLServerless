@@ -4,9 +4,9 @@
 export type CreateQuestionInput = {
   id?: number | null,
   stem?: string | null,
-  topic?: string | null,
-  subTopic?: string | null,
-  questionType?: string | null,
+  topic?: Topic | null,
+  subTopic?: SubTopic | null,
+  questionType?: QuestionType | null,
   questionOptions?: string | null,
   questionAnswers?: string | null,
   points?: number | null,
@@ -14,6 +14,64 @@ export type CreateQuestionInput = {
   explainationUrl?: string | null,
   imageUrl?: string | null,
 };
+
+export enum Topic {
+  Anatomy = "Anatomy",
+  Physiology = "Physiology",
+  Pathology = "Pathology",
+}
+
+
+export enum SubTopic {
+  Head = "Head",
+  Neck = "Neck",
+  Thorax = "Thorax",
+  Abdomen = "Abdomen",
+  Pelvis = "Pelvis",
+  UpperLimb = "UpperLimb",
+  LowerLimb = "LowerLimb",
+  Back = "Back",
+  EmbryologyAndHistopathology = "EmbryologyAndHistopathology",
+  CellularPhysiology = "CellularPhysiology",
+  NeuromuscularCNS = "NeuromuscularCNS",
+  GastrointestinalPhysiology = "GastrointestinalPhysiology",
+  HaematologyPhysiology = "HaematologyPhysiology",
+  FluidAndElectrolytes = "FluidAndElectrolytes",
+  CardiovascularPhysiology = "CardiovascularPhysiology",
+  RespiratoryPhysiology = "RespiratoryPhysiology",
+  Renal = "Renal",
+  Metabolism = "Metabolism",
+  EndocrinePhysiology = "EndocrinePhysiology",
+  ThyroidPhysiology = "ThyroidPhysiology",
+  TraumaAndClinical = "TraumaAndClinical",
+  CellularPathology = "CellularPathology",
+  Inflammation = "Inflammation",
+  Infection = "Infection",
+  AntibioticsAndPharmacology = "AntibioticsAndPharmacology",
+  Immunology = "Immunology",
+  Genetics = "Genetics",
+  Neoplasia = "Neoplasia",
+  SkinAndBone = "SkinAndBone",
+  HaematologyPathology = "HaematologyPathology",
+  CNS = "CNS",
+  Breast = "Breast",
+  CardiovascularPathology = "CardiovascularPathology",
+  RespiratoryPathology = "RespiratoryPathology",
+  GastrointestinalPathology = "GastrointestinalPathology",
+  ThyroidPathology = "ThyroidPathology",
+  EndocrinePathology = "EndocrinePathology",
+  RenalUrologyGynaecology = "RenalUrologyGynaecology",
+  Clinical = "Clinical",
+  Statistics = "Statistics",
+}
+
+
+export enum QuestionType {
+  MCQ = "MCQ",
+  TF = "TF",
+  SR = "SR",
+}
+
 
 export type UpdateQuestionInput = {
   id: number,
