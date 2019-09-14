@@ -1,0 +1,116 @@
+input CreateQuestionInput {
+  id: Int
+  stem: String
+  topic: String
+  subTopic: String
+  questionType: String
+  questionOptions: String
+  questionAnswers: String
+  points: Int
+  explaination: String
+  explainationUrl: String
+  imageUrl: String
+}
+
+type Question {
+  id: Int
+  stem: String
+  topic: String
+  subTopic: String
+  questionType: String
+  questionOptions: String
+  questionAnswers: String
+  points: Int
+  explaination: String
+  explainationUrl: String
+  imageUrl: String
+}
+
+input UpdateQuestionInput {
+  id: Int!
+  stem: String
+  topic: String
+  subTopic: String
+  questionType: String
+  questionOptions: String
+  questionAnswers: String
+  points: Int
+  explaination: String
+  explainationUrl: String
+  imageUrl: String
+}
+
+input CreateQuestionTblInput {
+  id: Int
+  stem: String
+  topic: String
+  subTopic: String
+  questionType: String
+  questionOptions: String
+  questionAnswers: String
+  points: Int
+  explaination: String
+  explainationUrl: String
+  imageUrl: String
+}
+
+type QuestionTbl {
+  id: Int!
+  stem: String
+  topic: String
+  subTopic: String
+  questionType: String
+  questionOptions: String
+  questionAnswers: String
+  points: Int
+  explaination: String
+  explainationUrl: String
+  imageUrl: String
+}
+
+input UpdateQuestionTblInput {
+  id: Int!
+  stem: String
+  topic: String
+  subTopic: String
+  questionType: String
+  questionOptions: String
+  questionAnswers: String
+  points: Int
+  explaination: String
+  explainationUrl: String
+  imageUrl: String
+}
+
+type Mutation {
+  deleteQuestion(id: Int!): Question
+  createQuestion(createQuestionInput: CreateQuestionInput!): Question
+  batchCreateQuestion(input: [CreateQuestionInput!]!): [Question]
+  updateQuestion(updateQuestionInput: UpdateQuestionInput!): Question
+  deleteQuestionTbl(id: Int!): QuestionTbl
+  createQuestionTbl(
+    createQuestionTblInput: CreateQuestionTblInput!
+  ): QuestionTbl
+  updateQuestionTbl(
+    updateQuestionTblInput: UpdateQuestionTblInput!
+  ): QuestionTbl
+}
+
+type Query {
+  getQuestion(id: Int!): Question
+  listQuestions: [Question]
+  getQuestionTbl(id: Int!): QuestionTbl
+  listQuestionTbls: [QuestionTbl]
+}
+
+type Subscription {
+  onCreateQuestion: Question @aws_subscribe(mutations: ["createQuestion"])
+  onCreateQuestionTbl: QuestionTbl
+    @aws_subscribe(mutations: ["createQuestionTbl"])
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}

@@ -1,0 +1,24 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "surgicalsql-dev-20190914142333-authRole",
+            "UnauthRoleArn": "arn:aws:iam::503083240712:role/surgicalsql-dev-20190914142333-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::503083240712:role/surgicalsql-dev-20190914142333-authRole",
+            "Region": "ap-southeast-2",
+            "DeploymentBucketName": "surgicalsql-dev-20190914142333-deployment",
+            "UnauthRoleName": "surgicalsql-dev-20190914142333-unauthRole",
+            "StackName": "surgicalsql-dev-20190914142333",
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:503083240712:stack/surgicalsql-dev-20190914142333/a8398090-d696-11e9-a811-06624269e00a"
+        },
+        "categories": {
+            "api": {
+                "surgicalsql": {
+                    "rdsRegion": "us-east-1",
+                    "rdsClusterIdentifier": "arn:aws:rds:us-east-1:503083240712:cluster:surgical",
+                    "rdsSecretStoreArn": "arn:aws:secretsmanager:us-east-1:503083240712:secret:rds-db-credentials/cluster-IRFVBRWYMSFC7XJ3JYINDSRIYM/admin-j4JYTK",
+                    "rdsDatabaseName": "Surgical"
+                }
+            }
+        }
+    }
+}
